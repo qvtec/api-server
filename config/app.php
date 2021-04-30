@@ -51,8 +51,10 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
+    'domain_type' => env('DOMAIN_TYPE', 'main'),
 
     'url' => env('APP_URL', 'http://localhost'),
+    'spa_url' => env('SPA_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -80,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------
@@ -154,7 +156,8 @@ return [
         Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
-        Illuminate\Queue\QueueServiceProvider::class,
+        //Illuminate\Queue\QueueServiceProvider::class,
+        Gecche\Multidomain\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
@@ -174,6 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\FortifyServiceProvider::class,
+        App\Providers\HelperServiceProvider::class,
 
     ],
 
