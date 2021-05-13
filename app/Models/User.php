@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\ProfilePhoto;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, SoftDeletes, ProfilePhoto;
+    use HasFactory, Notifiable, SoftDeletes, ProfilePhoto, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
