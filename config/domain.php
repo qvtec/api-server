@@ -21,8 +21,8 @@ return [
     ],
   ],
   'domains' => [
+    'server-baby.local.com' => 'server-baby.local.com',
+    'server-food.local.com' => 'server-food.local.com',
     'server-test.local.com' => 'server-test.local.com',
-    'server1.local.com' => 'server1.local.com',
-    'server2.local.com' => 'server2.local.com',
   ],
  ];

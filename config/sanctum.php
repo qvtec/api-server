@@ -49,4 +49,5 @@ return [
 
     'prefix' => 'api',
 
+    'guard' => env('AUTH_GUARD', 'web'),
 ];

@@ -5,29 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Support\Facades\Auth;
 
 class CurrentUserController extends ApiController
 {
     /**
      * ユーザ情報
      * 
-     * @param Request $request
      * @return JsonResponse
      */
-    protected function user(Request $request)
+    protected function index()
     {
-        $user = $request->user();
-        $data = [
-            'name' => $user->name,
-            'email' => $user->email,
-            'photo' => null,
-        ];
+        $user = Auth::user();
 
         if (!empty($user->profile_photo_path)) {
-            $data['photo'] = config("filesystems.disks.public.url") ."/". $user->profile_photo_path;
+            $user['photo'] = config("filesystems.disks.public.url") ."/". $user->profile_photo_path;
         }
 
-        return $this->success($data);
+        return $this->success($user);
     }
 
     /**

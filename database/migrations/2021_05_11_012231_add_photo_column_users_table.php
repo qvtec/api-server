@@ -17,7 +17,6 @@ class AddPhotoColumnUsersTable extends Migration
             $table->text('profile_photo_path')
                     ->after('remember_token')
                     ->nullable();
-            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -29,7 +28,7 @@ class AddPhotoColumnUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('profile_photo_path', 'deleted_at');
+            $table->dropColumn('profile_photo_path');
         });
     }
 }
