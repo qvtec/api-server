@@ -15,8 +15,9 @@ use App\Http\Controllers\Baby\DashboardController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('user', [CurrentUserController::class, 'index']);
+
 Route::middleware(['auth:sanctum'])->prefix('user')->group(function () {
-    Route::get('', [CurrentUserController::class, 'index']);
     Route::delete('', [CurrentUserController::class, 'destroy']);
     Route::delete('profile-photo', [CurrentUserController::class, 'photoDestroy']);
 });

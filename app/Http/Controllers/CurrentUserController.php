@@ -16,7 +16,7 @@ class CurrentUserController extends ApiController
      */
     protected function index()
     {
-        $user = Auth::user();
+        $user = Auth::check() ? Auth::user() : false;
 
         if (!empty($user->profile_photo_path)) {
             $user['photo'] = config("filesystems.disks.public.url") ."/". $user->profile_photo_path;

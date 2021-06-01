@@ -8,10 +8,7 @@ trait ApiResponse
 {
     protected function success($data, int $status = Response::HTTP_OK)
     {
-        return response()->json([
-                    'result' => true,
-                    'data' => $data
-                ], $status);
+        return response()->json($data, $status);
     }
 
     protected function error(string $message, array $errors = [], int $status = Response::HTTP_INTERNAL_SERVER_ERROR)
