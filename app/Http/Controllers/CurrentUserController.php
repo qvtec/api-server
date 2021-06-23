@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class CurrentUserController extends ApiController
 {
     /**
-     * ユーザ情報
+     * current user
      * 
-     * @return JsonResponse
+     * @return \Illuminate\Http\Response
      */
-    protected function index()
+    protected function me()
     {
         $user = Auth::check() ? Auth::user() : false;
 

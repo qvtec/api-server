@@ -15,12 +15,13 @@ use App\Http\Controllers\Test\DashboardController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::middleware(['auth:sanctum'])->prefix('user')->group(function () {
-    Route::get('', [CurrentUserController::class, 'index']);
-    Route::delete('', [CurrentUserController::class, 'destroy']);
-    Route::delete('profile-photo', [CurrentUserController::class, 'photoDestroy']);
-});
+Route::get('user', [CurrentUserController::class, 'user']);
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('user')->group(function () {
+        Route::delete('', [CurrentUserController::class, 'destroy']);
+        Route::delete('profile-photo', [CurrentUserController::class, 'photoDestroy']);
+    });
+
     Route::post('dashboard', [DashboardController::class, 'index']);
 });
